@@ -1,6 +1,7 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+import { log } from "console";
 
 console.log('Script started successfully');
 
@@ -11,7 +12,10 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ',WA.player.tags)
 
-     if ((Math.random()>=0.5)? 1 : 0) {
+    let player = (Math.random()>=0.5)? 1 : 0;
+        console.log('est visible : ' +player)
+
+    if (player === 1) {
         WA.room.hideLayer("above/laptops");
     }
 
