@@ -12,7 +12,7 @@ WA.onInit().then(() => {
     console.log('Player tags: ',WA.player.tags)
 
     let player = (Math.random()>=0.5)? 1 : 0;
-        console.log('est visible : ' +player)
+    console.log('est visible : ' + player)
 
     if (player === 1) {
         WA.room.hideLayer("above/laptops");
