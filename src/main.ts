@@ -1,8 +1,6 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
-import { parseCronExpression } from "cron-schedule";
-import { TimerBasedCronScheduler as scheduler } from "cron-schedule/dist/schedulers/timer-based.js";
 
 console.log('Script started successfully');
 
