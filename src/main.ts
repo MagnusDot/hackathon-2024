@@ -24,10 +24,11 @@ WA.onInit().then(() => {
         WA.room.showLayer("above/laptops");
     });
 
-    const now = new Date();
+   /* const now = new Date();
     const startNight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 0, 0);
-    const startDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0);
-    if (true) {
+     const startDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0);
+    */
+     if (true) {
         WA.room.hideLayer("above/laptops");
     }
 
