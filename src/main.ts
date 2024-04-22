@@ -1,6 +1,8 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+import { parseCronExpression } from "cron-schedule";
+import { TimerBasedCronScheduler as scheduler } from "cron-schedule/schedulers/timer-based.js";
 
 console.log('Script started successfully');
 
@@ -10,6 +12,24 @@ let currentPopup: any = undefined;
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ',WA.player.tags)
+
+
+    const cronStartNight = parseCronExpression('0 19 * * *');
+    scheduler.setInterval(cronStartNight, () => {
+        WA.room.hideLayer("above/laptops");
+    });
+
+    const cronStartDay = parseCronExpression('0 7 * * *');
+    scheduler.setInterval(cronStartDay, () => {
+        WA.room.showLayer("above/laptops");
+    });
+
+    const now = new Date();
+    const startNight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 0, 0);
+    const startDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0);
+    if (true) {
+        WA.room.hideLayer("above/laptops");
+    }
 
     WA.room.area.onEnter('clock').subscribe(() => {
         const today = new Date();
