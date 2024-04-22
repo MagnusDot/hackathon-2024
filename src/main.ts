@@ -1,20 +1,8 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
-import {ActionMessage} from "@workadventure/iframe-api-typings";
 
 console.log('Script started successfully');
-
-
-function displayDoor(state: boolean) { 
-    if (state === true) {
-        WA.room.showLayer('door/door_opened');
-        WA.room.hideLayer('door/door_closed');
-    } else {
-        WA.room.hideLayer('door/door_opened');
-        WA.room.showLayer('door/door_closed');
-    }
-}
 
 
 let currentPopup: any = undefined;
