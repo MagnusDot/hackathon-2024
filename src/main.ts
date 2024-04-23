@@ -24,15 +24,11 @@ WA.onInit().then(() => {
         const time = today.getHours() + ":" + today.getMinutes();
         currentPopup = WA.ui.openPopup("clockPopup", "It's " + time, []);
     })
-
-    WA.room.area.onEnter('bowling').subscribe(() => {
-        currentPopup = WA.ui.openPopup("bowling", "C'est du bowling", []);
-    })
-
+    
     let noteWebsite: any;
 
-    WA.room.onEnterLayer("visibleNote").subscribe(async () => {
-        console.log("Entering visibleNote layer");
+    WA.room.area.onEnter('bowling').subscribe(async () => {
+        currentPopup = WA.ui.openPopup("bowling", "C'est du bowling", []);
         noteWebsite = await WA.ui.website.open({
             url: "./src/note.html",
             position: {
@@ -48,15 +44,13 @@ WA.onInit().then(() => {
             },
             allowApi: true,
         });
+    })
 
-    });
 
-    WA.room.onLeaveLayer("visibleNote").subscribe(() => {
+    WA.room.area.onLeave('bowling').subscribe(function(){
+        closePopup();
         noteWebsite.close();
     });
-
-
-    WA.room.area.onLeave('bowling').subscribe(closePopup)
 
 
     WA.room.area.onLeave('clock').subscribe(closePopup)
