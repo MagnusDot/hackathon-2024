@@ -30,6 +30,8 @@ WA.onInit().then(() => {
         WA.room.hideLayer("above/laptops");
     }
 
+    console.log('bite');
+    
 
     WA.state.onVariableChange('doorState').subscribe((doorState) => {
         displayDoor(doorState as boolean);
